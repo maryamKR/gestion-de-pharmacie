@@ -15,19 +15,83 @@ def menu():
             print("╠" + "═" * width + "╣")
 
             print_line()
-            print_line("[ 1 ] Ajouter un étudiant")
-            print_line("[ 2 ] Afficher tous les étudiants")
-            print_line("[ 3 ] Rechercher un étudiant")
-            print_line("[ 4 ] Supprimer un étudiant / une note")
-            print_line("[ 5 ] Afficher les statistiques (Bonus)")
+            print_line("[ 1 ] Gestion des Médicaments")
+            print_line("[ 2 ] Gestion du Stock")
+            print_line("[ 3 ] Gestion des Ventes")
+            print_line("[ 4 ] Suivi des Expirations")
+            print_line("[ 5 ] Alertes")
+            print_line("[ 6 ] Statistiques")
             print_line("[ 0 ] Quitter")
             print_line()
 
             print("╚" + "═" * width + "╝")
 
-            choix = input("Votre choix : ")
+            choix = input("Selectioner votre option : : ")
 
-            if choix == "0":
-                break
+            if choix == "1":
+                while True:
+                    print("\n******** [ 1 ] Gestion des Médicaments ********")
+                    print("1. Ajouter médicament")
+                    print("2. Afficher tous les médicaments")
+                    print("3. Rechercher médicament")
+                    print("4. Modifier médicament")
+                    print("5. Supprimer médicament")
+                    print("0. Reteur au menu principal")
+                    print("************************************************")
+                    choix_sous_menu = input("\nSelectioner votre option : ")
+
+            elif choix == "2":
+                while True:
+                    print("\n******** [ 2 ] Gestion du Stock ********")
+                    print("1. Entrée de stock")
+                    print("2. Sortie de stock")
+                    print("3. Voir quantité actuelle")
+                    print("0. Reteur au menu principal")
+                    print("************************************************")
+                    choix_sous_menu = input("\nSelectioner votre option : ")
+
+            elif choix == "3":
+                while True:
+                    print("\n******** [ 3 ] Gestion des Ventes ********")
+                    print("1. Nouvelle vente")
+                    print("2. Liste des ventes")
+                    print("3. Ventes du jour")
+                    print("4. Retour produit")
+                    print("0. Reteur au menu principal")
+                    print("************************************************")
+                    choix_sous_menu = input("\nSelectioner votre option : ")
+
+            elif choix == "4":
+                while True:
+                    print("\n******** [ 4 ] Suivi des Expirations ********")
+                    print("1. Produits expirés")
+                    print("2. Produits proches expiration")
+                    print("3. Trier par date d’expiration")
+                    print("0. Reteur au menu principal")
+                    print("************************************************")
+                    choix_sous_menu = input("\nSelectioner votre option : ")
+
+            elif choix == "5":
+                while True:
+                    print("\n******** [ 5 ] Alertes ********")
+                    print("1. Stock faible")
+                    print("2. Produits expirés")
+                    print("3. Expiration proche")
+                    print("4. Toutes les alertes")
+                    print("0. Reteur au menu principal")
+                    print("************************************************")
+                    choix_sous_menu = input("\nSelectioner votre option : ")
+
+            elif choix == "6":
+                while True:
+                    print("\n******** [ 6 ] Statistiques ********")
+                    print("1. Nombre total de médicaments")
+                    print("2. Valeur totale du stock")
+                    print("3. Médicament le plus vendu")
+                    print("4. Ventes totales")
+                    print("0. Reteur au menu principal")
+                    print("************************************************")
+                    choix_sous_menu = input("\nSelectioner votre option : ")
+
 menu()
 
