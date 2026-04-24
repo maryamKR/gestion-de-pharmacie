@@ -10,7 +10,7 @@ def sauvegarder_list():
 def charger_list():
     global liste
     try:
-        with open("./medications.json", "r") as file:
+        with open("./medicament.json", "r") as file:
             liste = json.load(file)
     except FileNotFoundError:
         liste = []
@@ -29,7 +29,24 @@ def ajouter_medicament(id,nom, prix, quantite, expirationDate):
     liste.append(medicament)
     sauvegarder_list()
 
+# ============================================
+#           3. Rechercher médicament
+# ============================================
+def rechercher_medicament(id):
+    for medicament in liste :
+        if medicament ["id"] == id:
+            print("Médicament trouvé :")
+            print("ID :", medicament["id"])
+            print("Nom :", medicament["nom"])
+            print("Prix :", medicament["prix"])
+            print("Quantité :", medicament["quantite"])
+            print("Date d'expiration :", medicament["expirationDate"])
+            return
+
+    print("Erreur : médicament introuvable.")
+
 def menu():
+    charger_list()
     while True:
         width = 45
 
@@ -55,7 +72,7 @@ def menu():
 
             print("╚" + "═" * width + "╝")
 
-            choix = input("Selectioner votre option : : ")
+            choix = input("Selectioner votre option : ")
 
             if choix == "1":
                 while True:
@@ -68,7 +85,8 @@ def menu():
                     print("0. Reteur au menu principal")
                     print("************************************************")
                     choix_sous_menu = input("\nSelectioner votre option : ")
-                    if choix == "1":
+
+                    if choix_sous_menu == "1":
                         id = int(input("Veuillez entrer l’identifiant : "))
                         nom = input("Veuillez entrer le nom du médicament : ")
                         prix = float(input("Veuillez entrer le prix : "))
@@ -76,6 +94,11 @@ def menu():
                         expirationDate = input("Veuillez entrer la date d’expiration (AAAA/MM/JJ) : ")
 
                         ajouter_medicament(id, nom, prix, quantite, expirationDate)
+
+
+                    elif choix_sous_menu == "3":
+                        id = int(input("Veuillez entrer l’identifiant : "))
+                        rechercher_medicament(id)
 
 
             elif choix == "2":
