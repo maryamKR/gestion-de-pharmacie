@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "nom": "dolipran",
+        "prix": 23.0,
+        "quantite": 39,
+        "expirationDate": "2029-12-11"
+    }
+]

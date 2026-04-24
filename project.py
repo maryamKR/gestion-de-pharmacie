@@ -1,4 +1,33 @@
+import json
+liste = []
 
+# This function saves the medication list into a file.
+def sauvegarder_list():
+    with open("./medicament.json", "w") as file:
+        json.dump(liste, file, indent=4)
+
+
+def charger_list():
+    global liste
+    try:
+        with open("./medications.json", "r") as file:
+            liste = json.load(file)
+    except FileNotFoundError:
+        liste = []
+
+# ============================================
+#          1. Ajouter medicament
+# ============================================
+def ajouter_medicament(id,nom, prix, quantite, expirationDate):
+    medicament = {
+        "id": id,
+        "nom": nom,
+        "prix": prix,
+        "quantite": quantite,
+        "expirationDate": expirationDate
+    }
+    liste.append(medicament)
+    sauvegarder_list()
 
 def menu():
     while True:
@@ -39,6 +68,15 @@ def menu():
                     print("0. Reteur au menu principal")
                     print("************************************************")
                     choix_sous_menu = input("\nSelectioner votre option : ")
+                    if choix == "1":
+                        id = int(input("Veuillez entrer l’identifiant : "))
+                        nom = input("Veuillez entrer le nom du médicament : ")
+                        prix = float(input("Veuillez entrer le prix : "))
+                        quantite = int(input("Veuillez entrer la quantité : "))
+                        expirationDate = input("Veuillez entrer la date d’expiration (AAAA/MM/JJ) : ")
+
+                        ajouter_medicament(id, nom, prix, quantite, expirationDate)
+
 
             elif choix == "2":
                 while True:
